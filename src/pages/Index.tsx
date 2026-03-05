@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsStrip from "@/components/StatsStrip";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Partners from "@/components/Partners";
@@ -11,10 +10,9 @@ const Index = () => (
   <>
     <Navbar />
     <Hero />
-    <StatsStrip />
+    <Partners />
     <Services />
     <WhyChooseUs />
-    <Partners />
     <CtaBanner />
     <Footer />
   </>
