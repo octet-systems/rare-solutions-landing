@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import networkInstaller from "@/assets/network-installer.jpg";
 
 const Hero = () => {
   return (
