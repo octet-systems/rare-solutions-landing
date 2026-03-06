@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 type TicketStatus = "open" | "in-progress" | "resolved" | "closed";
 type TicketPriority = "low" | "medium" | "high" | "critical";
@@ -245,6 +246,7 @@ const Support = () => {
               <Menu size={18} />
             </Button>
             <h1 className="font-heading font-bold text-foreground text-lg capitalize">{sidebarNav}</h1>
+            <p className="hidden md:block text-xs text-muted-foreground">Prototype workspace · all views interactive</p>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="icon" className="rounded-full"><Bell size={16} /></Button>
@@ -416,14 +418,25 @@ const Support = () => {
                         <p className="text-xs font-mono text-muted-foreground mb-1">{selected.id} · {selected.category}</p>
                         <h2 className="font-heading font-bold text-lg leading-snug">{selected.subject}</h2>
                       </div>
-                      <div className="relative group">
-                        <Button size="sm" variant="outline" className="rounded-full gap-1 text-xs">Status <ChevronDown size={14} /></Button>
-                        <div className="absolute right-0 top-full mt-1 bg-card border border-border rounded-lg shadow-lg py-1 w-36 hidden group-hover:block z-10">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button size="sm" variant="outline" className="rounded-full gap-1 text-xs">
+                            Status <ChevronDown size={14} />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-40">
                           {(["open", "in-progress", "resolved", "closed"] as const).map((status) => (
-                            <button key={status} onClick={() => updateStatus(selected.id, status)} className="w-full text-left px-3 py-1.5 text-sm hover:bg-muted">{statusConfig[status].label}</button>
+                            <DropdownMenuItem
+                              key={status}
+                              onClick={() => updateStatus(selected.id, status)}
+                              className="justify-between"
+                            >
+                              {statusConfig[status].label}
+                              {selected.status === status ? <CheckCircle2 size={14} className="text-accent" /> : null}
+                            </DropdownMenuItem>
                           ))}
-                        </div>
-                      </div>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
                   </div>
 
