@@ -41,7 +41,12 @@ const Navbar = () => {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <a href="/support">
+              <Button variant="outline" className="rounded-full px-5 font-semibold border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                Support Portal
+              </Button>
+            </a>
             <a href="#contact">
               <Button className="bg-accent text-accent-foreground hover:bg-gold-light rounded-full px-6 font-semibold shadow-lg shadow-accent/20">
                 Get a Quote
