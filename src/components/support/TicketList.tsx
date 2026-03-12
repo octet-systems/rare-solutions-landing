@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, CheckSquare, Square } from "lucide-react";
 import type { TicketData, TicketStatus, TicketPriority } from "@/types/support";
 
 interface TicketListProps {
@@ -13,6 +13,9 @@ interface TicketListProps {
   statusConfig: Record<TicketStatus, { label: string; color: string; icon: React.ElementType }>;
   priorityColor: Record<TicketPriority, string>;
   isMobileHidden: boolean;
+  selectedTickets?: string[];
+  onToggleSelection?: (id: string) => void;
+  showSelection?: boolean;
 }
 
 export const TicketList = ({
@@ -27,6 +30,9 @@ export const TicketList = ({
   statusConfig,
   priorityColor,
   isMobileHidden,
+  selectedTickets = [],
+  onToggleSelection,
+  showSelection = false,
 }: TicketListProps) => {
   return (
     <div className={`${isMobileHidden ? "hidden lg:flex" : "flex"} flex-col w-full lg:w-[380px] border-r border-border bg-card shrink-0 h-full`}>
@@ -63,19 +69,31 @@ export const TicketList = ({
         {tickets.length === 0 && <p className="text-center text-muted-foreground text-sm py-10">No tickets found.</p>}
         {tickets.map((t) => {
           const sc = statusConfig[t.status];
+          const isSelected = selectedTickets.includes(t.id);
           return (
             <button
               key={t.id}
               onClick={() => {
-                setSelectedId(t.id);
-                setShowNew(false);
+                if (showSelection && onToggleSelection) {
+                  onToggleSelection(t.id);
+                } else {
+                  setSelectedId(t.id);
+                  setShowNew(false);
+                }
               }}
               className={`w-full text-left px-4 py-3.5 border-b border-border hover:bg-muted/40 transition-colors ${
                 selectedId === t.id ? "bg-accent/5 border-l-2 border-l-accent" : ""
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-1">
-                <span className="text-xs font-mono text-muted-foreground">{t.id}</span>
+                <div className="flex items-center gap-2">
+                  {showSelection && (
+                    <span onClick={(e) => { e.stopPropagation(); onToggleSelection?.(t.id); }}>
+                      {isSelected ? <CheckSquare size={14} className="text-accent" /> : <Square size={14} className="text-muted-foreground" />}
+                    </span>
+                  )}
+                  <span className="text-xs font-mono text-muted-foreground">{t.id}</span>
+                </div>
                 <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${priorityColor[t.priority]}`}>
                   {t.priority}
                 </span>

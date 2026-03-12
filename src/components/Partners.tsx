@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 
 const partners = [
@@ -9,20 +8,14 @@ const partners = [
 const Partners = () => (
   <section id="partners" className="py-16 md:py-24 bg-muted overflow-hidden border-t border-border">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center"
-      >
+      <div className="text-center">
         <span className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 block">
           Our Clients
         </span>
         <h2 className="text-2xl md:text-3xl font-bold text-primary">Trusted by Industry Leaders</h2>
-      </motion.div>
+      </div>
     </div>
 
-    {/* Marquee */}
     <div className="relative w-full">
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-muted to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-muted to-transparent z-10" />
