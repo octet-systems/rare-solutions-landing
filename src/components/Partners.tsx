@@ -1,39 +1,45 @@
 import { motion } from "framer-motion";
+import { Building2 } from "lucide-react";
 
 const partners = [
-  "Partner One", "Partner Two", "Partner Three", "Partner Four",
-  "Partner Five", "Partner Six", "Partner Seven", "Partner Eight",
+  "TechnoSystems", "Malawi Net", "Global Connect", "CyberSecure",
+  "DataLink", "AfriCom", "NetServe", "InfoTech",
 ];
 
 const Partners = () => (
-  <section id="partners" className="py-16 md:py-24 bg-muted overflow-hidden">
+  <section id="partners" className="py-16 md:py-24 bg-muted overflow-hidden border-t border-border">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center text-sm font-semibold tracking-[0.2em] uppercase text-muted-foreground"
+        className="text-center"
       >
-        Our Trusted Partners
-      </motion.p>
+        <span className="text-accent font-semibold text-sm tracking-widest uppercase mb-3 block">
+          Our Clients
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-primary">Trusted by Industry Leaders</h2>
+      </motion.div>
     </div>
 
     {/* Marquee */}
-    <div className="relative">
-      <div className="flex marquee">
-        {[...partners, ...partners].map((name, i) => (
+    <div className="relative w-full">
+      <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-muted to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-muted to-transparent z-10" />
+      
+      <div className="flex marquee whitespace-nowrap">
+        {[...partners, ...partners, ...partners].map((name, i) => (
           <div
-            key={i}
-            className="flex-shrink-0 mx-4 w-48 h-24 rounded-xl border border-border bg-card flex items-center justify-center
-                       grayscale hover:grayscale-0 transition-all duration-300 hover:shadow-md hover:border-accent/30 cursor-pointer"
+            key={`${name}-${i}`}
+            className="flex-shrink-0 mx-4 md:mx-8 w-48 h-24 rounded-xl border border-border bg-card/50 flex flex-col items-center justify-center gap-2
+                       grayscale hover:grayscale-0 transition-all duration-300 hover:bg-card hover:shadow-md hover:border-accent/30 cursor-default"
           >
-            <span className="font-heading font-semibold text-muted-foreground/60 text-sm">{name}</span>
+            <Building2 size={24} className="text-accent opacity-70" />
+            <span className="font-heading font-bold text-primary/70 text-base">{name}</span>
           </div>
         ))}
       </div>
     </div>
-
-    <p className="text-center text-xs text-muted-foreground mt-8 italic">Replace with actual client/partner logos</p>
   </section>
 );
 

@@ -16,7 +16,7 @@ const CtaBanner = () => (
         <p className="text-accent-foreground/70 text-lg md:text-xl mb-8">
           Let's build something great together.
         </p>
-        <a href="#contact">
+        <a href="/#contact">
           <Button className="bg-primary text-primary-foreground hover:bg-navy-light rounded-full px-10 py-6 text-lg font-semibold shadow-xl">
             Start a Conversation
           </Button>

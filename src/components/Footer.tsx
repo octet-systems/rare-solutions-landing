@@ -9,11 +9,11 @@ const services = [
 ];
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Partners", href: "#partners" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Partners", href: "/#partners" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socials = [

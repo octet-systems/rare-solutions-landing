@@ -39,12 +39,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#services">
+            <a href="/#services">
               <Button className="bg-accent text-accent-foreground hover:bg-gold-light rounded-full px-8 py-6 text-base font-semibold shadow-lg shadow-accent/25 gap-2">
                 Our Services <ArrowRight size={18} />
               </Button>
             </a>
-            <a href="#contact">
+            <a href="/#contact">
               <Button
                 variant="outline"
                 className="rounded-full px-8 py-6 text-base font-semibold border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 gap-2"

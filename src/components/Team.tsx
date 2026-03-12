@@ -8,6 +8,20 @@ const team = [
     initials: "MM",
     expertise: ["Network Architecture", "Enterprise IT", "Telecom Systems", "Business Strategy"],
   },
+  {
+    name: "Chimwemwe Phiri",
+    role: "CTO",
+    bio: "Expert in cloud infrastructure and cybersecurity. Chimwemwe leads our technical strategy, ensuring our solutions are secure, scalable, and future-proof.",
+    initials: "CP",
+    expertise: ["Cloud Security", "DevOps", "Cybersecurity", "Architecture"],
+  },
+  {
+    name: "Grace Banda",
+    role: "Head of Operations",
+    bio: "With a background in project management and business analysis, Grace ensures that every project is delivered on time, within budget, and to the highest quality standards.",
+    initials: "GB",
+    expertise: ["Project Management", "Operations", "Business Analysis", "Client Relations"],
+  },
 ];
 
 const Team = () => (
@@ -20,11 +34,11 @@ const Team = () => (
         <h2 className="section-heading gold-underline mx-auto">Meet the Team</h2>
       </div>
 
-      <div className="flex justify-center">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         {team.map((member) => (
           <div
             key={member.name}
-            className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden max-w-md w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            className="bg-card rounded-2xl shadow-lg border border-border overflow-hidden w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col"
           >
             {/* Avatar area */}
             <div className="bg-primary p-8 flex flex-col items-center">
@@ -36,8 +50,8 @@ const Team = () => (
             </div>
 
             {/* Details */}
-            <div className="p-6">
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">{member.bio}</p>
+            <div className="p-6 flex-1 flex flex-col">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">{member.bio}</p>
 
               <div className="flex flex-wrap gap-2 mb-5">
                 {member.expertise.map((skill) => (
@@ -50,7 +64,7 @@ const Team = () => (
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-3 mt-auto">
                 <a
                   href="#"
                   aria-label="LinkedIn"

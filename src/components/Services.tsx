@@ -62,7 +62,7 @@ const Services = () => (
             </div>
             <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
             <p className="text-muted-foreground leading-relaxed flex-1">{service.description}</p>
-            <a href="#contact" className="inline-flex items-center gap-1 text-accent font-semibold text-sm mt-5 hover:gap-2 transition-all">
+            <a href="/#contact" className="inline-flex items-center gap-1 text-accent font-semibold text-sm mt-5 hover:gap-2 transition-all">
               Learn More <ArrowRight size={14} />
             </a>
           </motion.div>
@@ -79,7 +79,7 @@ const Services = () => (
         <p className="text-primary-foreground text-lg md:text-xl font-medium max-w-lg">
           Need a full network audit or a quote for your office?
         </p>
-        <a href="#contact">
+        <a href="/#contact">
           <Button className="bg-accent text-accent-foreground hover:bg-gold-light rounded-full px-8 py-6 font-semibold shadow-lg shadow-accent/20 whitespace-nowrap">
             Request a Site Survey
           </Button>
